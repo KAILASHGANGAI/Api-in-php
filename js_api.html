@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js api</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	fetch(`https://calendarific.com/api/v2/holidays?&api_key=3eb938a4ba6cec08c9160bb10f113455fee7a49e&country=np&year=2020`)
+	.then(res=>res.json())
+	.then(data=>{
+	  var output = data;
+	  var results = output.response.holidays;
+	  
+	  results.forEach(value=>{
+	    document.body.innerHTML += `${value.name} <br> ${value.date.iso}`;
+	  })
+	})
+</script>
+</body>
+</html>
